@@ -19,15 +19,15 @@ def Main():
     
     
     while True:
-        with open(r'.\fixmessages.csv', 'r') as f:
-            for line in f:
-                if line == ',0':
-                    continue
-                print('sending to server', line[3:].encode(FORMAT).decode(FORMAT))
-                s.send(line[2:].encode(FORMAT))
-                data = s.recv(4068)
-                print('Received from the server :',str(data.decode(FORMAT))) 
-            f.close()
+        # with open(r'.\fixmessages.csv', 'r') as f:
+        #     for line in f:
+        #         if line == ',0':
+        #             continue
+        #         print('sending to server', line[3:].encode(FORMAT).decode(FORMAT))
+        #         s.send(line[2:].encode(FORMAT))
+        #         data = s.recv(4068)
+        #         print('Received from the server :',str(data.decode(FORMAT))) 
+        #     f.close()
         # df = pd.read_csv(r"C:\Users\JerrinJohnJoseph\Desktop\fixmessages.csv")
         #print(df.head)
         # for (columnName, columnData) in df.iteritems(): 
@@ -40,16 +40,16 @@ def Main():
             # s.send(i.encode(FORMAT))
             # data = s.recv(4068)
             # print('Received from the server :',str(data.decode(FORMAT))) 
-
-        # for line in fileHandle:
-        #     print('sending to the server', line[:-2].encode(FORMAT).decode(FORMAT))
-        #     s.send(line[:-1].encode(FORMAT)) 
-        #     data = s.recv(4068) 
+        fileHandle = open(r'.\req.txt')   
+        for line in fileHandle:
+            print('sending to the server', line[:-2].encode(FORMAT).decode(FORMAT))
+            s.send(line[:-1].encode(FORMAT)) 
+            data = s.recv(4068) 
   
-        #     print('Received from the server :',str(data.decode(FORMAT))) 
-        #     #populate 11= 'x' based on server
-        #     # log this and analyze 
-        # fileHandle.close()
+            print('Received from the server :',str(data.decode(FORMAT))) 
+            #populate 11= 'x' based on server
+            # log this and analyze 
+        fileHandle.close()
 
         # s.send(msg)
 
