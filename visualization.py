@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#Represent Order Book microstructure
 
 import matplotlib.pyplot as plt
 import subprocess
